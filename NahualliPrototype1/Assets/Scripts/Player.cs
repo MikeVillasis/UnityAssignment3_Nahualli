@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private string _xMoveInput = "Vertical";
     [SerializeField] private string _zMoveInput = "Horizontal";
     [SerializeField] private string _jumpInput = "Jump";
-
+    [SerializeField] private string _rotationInput = "Mouse X";
 
     private BasicMovement _characterController;
 
@@ -21,11 +21,13 @@ public class Player : MonoBehaviour
     {
         float xInput = Input.GetAxis(_xMoveInput);
         float zInput = Input.GetAxis(_zMoveInput);
+        float yRotation = Input.GetAxis(_rotationInput);
         _characterController.SetMoveInput(xInput, zInput);
-
+      //  transform.Rotate(0f, yRotation, 0f);
         if (Input.GetAxis(_jumpInput) > .1f)
             _characterController.TryJump();
 
+       
     }
 
 
